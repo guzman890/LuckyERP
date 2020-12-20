@@ -1,0 +1,32 @@
+<div mat-dialog-title fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="fill-primary-contrast" fxFlex="auto" fxLayoutAlign="center center">
+      Editar Asignatura
+    </div>
+    <button type="button" mat-dialog-close tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  
+  <mat-dialog-content>
+    <div fxLayout="column" fxLayoutGap="8px">
+  
+      <div fxLayoutGap="8px">
+        <mat-form-field appearance="outline">
+          <mat-label> Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" [(ngModel)]="descripcion" />
+        </mat-form-field>
+      </div>
+  
+      <div fxLayoutGap="8px" fxLayout="row">
+        <p>Estado</p>
+          <mat-checkbox matInput [(ngModel)]="estado"></mat-checkbox>
+      </div>
+  
+  </div>
+  
+  </mat-dialog-content>
+  
+  <mat-dialog-actions fxLayoutAlign="space-between center">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" cdkFocusInitial (click)="guardar()">Guardar</button>
+  </mat-dialog-actions>

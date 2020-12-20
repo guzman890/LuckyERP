@@ -1,0 +1,42 @@
+<div mat-dialog-title fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="fill-primary-contrast" fxFlex="auto" fxLayoutAlign="center center">
+      Editar Libro
+    </div>
+    <button type="button" mat-dialog-close tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  
+  <mat-dialog-content>
+    <div fxLayout="column" fxLayoutGap="8px">
+  
+      <div fxLayoutGap="8px">
+        <mat-form-field appearance="outline">
+          <mat-label> Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" [(ngModel)]="descripcion" />
+        </mat-form-field>
+      </div>
+  
+      <div fxLayoutGap="8px">
+        <mat-form-field appearance="outline">
+          <mat-label> Stock</mat-label>
+          <input matInput type="number" placeholder="Stock" [(ngModel)]="stock" />
+        </mat-form-field>
+      </div>
+      <div *ngIf="ready">
+        <mat-form-field appearance="outline">
+            <mat-label>Escoge Asignatura</mat-label>
+            <mat-select [(value)]="asingnatura" >
+              <mat-option *ngFor="let asignaturasSelect of listaAsignaturas" [value]="asignaturasSelect.idAsig">{{ asignaturasSelect.descripcion }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+      
+  </div>
+  
+  </mat-dialog-content>
+  
+  <mat-dialog-actions fxLayoutAlign="space-between center">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" cdkFocusInitial (click)="guardar()">Guardar</button>
+  </mat-dialog-actions>
